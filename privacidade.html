@@ -5,123 +5,175 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Política de Privacidade — Oddu</title>
 <style>
-  :root {
-    --bg: #0B0B10;
-    --card: #15151E;
-    --border: #232333;
-    --text: #FFFFFF;
-    --muted: #8A8AA3;
-    --muted-soft: #5C5C73;
-    --accent: #00E676;
-    --accent-soft: #00E67622;
-    --accent-border: #00E67640;
+  :root{
+    --bg:#0B0B0D;
+    --bg-card:#101013;
+    --bg-summary:#0E1C15;
+    --border:rgba(255,255,255,0.08);
+    --border-summary:rgba(0,230,118,0.25);
+    --green:#00E676;
+    --green-dim:#0FA968;
+    --text:#F2F2F3;
+    --text-dim:#A7A7AD;
+    --text-faint:#6E6E74;
   }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.65;
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
   }
-  .wrap {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 48px 24px 96px;
+  .wrap{max-width:720px;margin:0 auto;padding:32px 20px 80px;}
+
+  header.top{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding-bottom:20px;
+    margin-bottom:28px;
+    border-bottom:0.5px solid var(--border);
   }
-  header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 8px;
+  header.top img{width:30px;height:30px;display:block;}
+  header.top .brand{display:flex;flex-direction:column;}
+  header.top .brand .name{font-size:17px;font-weight:600;letter-spacing:-0.01em;}
+  header.top .brand .doc{font-size:12.5px;color:var(--text-dim);margin-top:2px;}
+
+  h1.title{font-size:22px;font-weight:600;letter-spacing:-0.01em;margin:0 0 4px;}
+  p.updated{font-size:13px;color:var(--text-faint);margin:0 0 24px;}
+
+  .summary{
+    background:var(--bg-summary);
+    border:0.5px solid var(--border-summary);
+    border-radius:10px;
+    padding:18px 20px;
+    font-size:14.5px;
+    color:#D7DAD8;
+    margin-bottom:32px;
   }
-  .logo {
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    background: var(--accent-soft);
-    border: 1px solid var(--accent-border);
-    color: var(--accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 20px;
+  .summary strong{color:var(--green);}
+  .summary .label{
+    display:block;
+    font-size:11.5px;
+    font-weight:600;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--green);
+    margin-bottom:8px;
   }
-  header h1 {
-    font-size: 20px;
-    margin: 0;
-    letter-spacing: -0.01em;
+
+  nav.crosslink{
+    display:flex;
+    gap:0;
+    margin-bottom:32px;
+    border-bottom:0.5px solid var(--border);
   }
-  .updated {
-    color: var(--muted);
-    font-size: 13px;
-    margin: 0 0 40px;
+  nav.crosslink a{
+    flex:1;
+    text-align:center;
+    padding:12px 0;
+    font-size:14px;
+    font-weight:500;
+    text-decoration:none;
+    color:var(--text-dim);
+    border-bottom:2px solid transparent;
+    margin-bottom:-0.5px;
   }
-  .highlight {
-    background: var(--accent-soft);
-    border: 1px solid var(--accent-border);
-    border-radius: 14px;
-    padding: 18px 20px;
-    margin: 0 0 40px;
-    font-size: 14.5px;
-    color: var(--text);
+  nav.crosslink a.active{color:var(--text);border-bottom-color:var(--green);}
+
+  section.item{margin-bottom:26px;}
+  section.item h2{
+    font-size:15px;
+    font-weight:600;
+    margin:0 0 8px;
+    display:flex;
+    gap:10px;
+    align-items:baseline;
   }
-  .highlight strong { color: var(--accent); }
-  h2 {
-    font-size: 16px;
-    margin: 40px 0 12px;
-    padding-top: 8px;
-    border-top: 1px solid var(--border);
-    letter-spacing: -0.01em;
+  section.item h2 .num{color:var(--green);font-variant-numeric:tabular-nums;font-weight:600;}
+  section.item p{font-size:14.5px;color:#D2D2D5;margin:0 0 10px;}
+  section.item ul{margin:8px 0 10px;padding-left:20px;}
+  section.item li{font-size:14.5px;color:#D2D2D5;margin-bottom:6px;}
+  section.item a{color:var(--green);text-decoration:none;border-bottom:0.5px solid var(--green-dim);}
+
+  table.data{
+    width:100%;
+    border-collapse:collapse;
+    margin:12px 0 18px;
+    font-size:13.5px;
   }
-  h2:first-of-type { border-top: none; padding-top: 0; }
-  p, li { font-size: 14.5px; color: var(--muted); }
-  strong { color: var(--text); }
-  ul { padding-left: 20px; margin: 8px 0; }
-  li { margin-bottom: 6px; }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 12px 0;
-    font-size: 13.5px;
+  table.data th{
+    text-align:left;
+    color:var(--text-dim);
+    font-weight:600;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    padding:10px 12px;
+    border-bottom:0.5px solid var(--border);
   }
-  th, td {
-    text-align: left;
-    padding: 10px 12px;
-    border: 1px solid var(--border);
-    color: var(--muted);
+  table.data td{
+    padding:10px 12px;
+    border-bottom:0.5px solid var(--border);
+    color:#D2D2D5;
+    vertical-align:top;
   }
-  th { color: var(--text); background: var(--card); }
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  footer {
-    margin-top: 56px;
-    padding-top: 24px;
-    border-top: 1px solid var(--border);
-    color: var(--muted-soft);
-    font-size: 12.5px;
-    text-align: center;
+  table.data tr:last-child td{border-bottom:none;}
+
+  footer.bottom{
+    margin-top:48px;
+    padding-top:20px;
+    border-top:0.5px solid var(--border);
+    font-size:12px;
+    color:var(--text-faint);
+    text-align:center;
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    section.item{animation:fade 0.3s ease both;}
+    @keyframes fade{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+  }
+
+  @media (max-width:420px){
+    table.data{font-size:12.5px;}
+    table.data th,table.data td{padding:8px 6px;}
   }
 </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="logo">O</div>
-      <h1>Oddu</h1>
-    </header>
-    <p class="updated">Política de Privacidade — última atualização em 10 de julho de 2026</p>
+<div class="wrap">
 
-    <div class="highlight">
-      <strong>Resumo em linguagem simples:</strong> o Oddu é uma ferramenta de organização e controle de banca — <strong>não é uma casa de apostas</strong> e não processa apostas reais nem movimenta dinheiro de jogo. Os dados que coletamos servem exclusivamente para você acompanhar seu próprio histórico e desempenho dentro do app. Não vendemos seus dados a terceiros.
+  <header class="top">
+    <img src="logo-simbolo.png" alt="Oddu">
+    <div class="brand">
+      <span class="name">Oddu</span>
+      <span class="doc">Política de Privacidade</span>
     </div>
+  </header>
 
-    <h2>1. Controlador dos Dados</h2>
+  <h1 class="title">Política de Privacidade</h1>
+  <p class="updated">Última atualização em 17 de julho de 2026</p>
+
+  <div class="summary">
+    <span class="label">Resumo em linguagem simples</span>
+    O Oddu é uma ferramenta de organização e controle de banca — <strong>não é uma casa de apostas</strong> e não processa apostas reais nem movimenta dinheiro de jogo. Os dados que coletamos servem exclusivamente para você acompanhar seu próprio histórico e desempenho dentro do app. Não vendemos seus dados a terceiros.
+  </div>
+
+  <nav class="crosslink">
+    <a href="termos.html">Termos de Uso</a>
+    <a href="privacidade.html" class="active">Privacidade</a>
+  </nav>
+
+  <section class="item">
+    <h2><span class="num">1.</span> Controlador dos Dados</h2>
     <p>Para os fins da Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD), o controlador dos dados pessoais tratados pelo aplicativo Oddu é a pessoa responsável pelo desenvolvimento e operação do Oddu. Dúvidas ou solicitações podem ser enviadas pelo e-mail de suporte disponível na tela de Configurações do aplicativo.</p>
+  </section>
 
-    <h2>2. Dados Coletados</h2>
-    <table>
+  <section class="item">
+    <h2><span class="num">2.</span> Dados Coletados</h2>
+    <table class="data">
       <tr><th>Categoria</th><th>Dados</th><th>Origem</th></tr>
       <tr><td>Conta</td><td>E-mail, senha (criptografada), nome (quando login via Google)</td><td>Fornecido pelo usuário / provedor de login</td></tr>
       <tr><td>Dados de apostas</td><td>Evento, esporte, mercado, odd, valor, resultado, casa de apostas, data</td><td>Inserido manualmente pelo usuário</td></tr>
@@ -130,8 +182,10 @@
       <tr><td>Dados técnicos</td><td>Identificadores de dispositivo, logs de erro</td><td>Coletado automaticamente</td></tr>
     </table>
     <p>Importante: os dados de apostas são declarados livremente pelo próprio usuário para fins de controle pessoal. O Oddu não tem acesso e não se conecta a nenhuma casa de apostas para verificar ou processar essas informações.</p>
+  </section>
 
-    <h2>3. Finalidade do Tratamento</h2>
+  <section class="item">
+    <h2><span class="num">3.</span> Finalidade do Tratamento</h2>
     <ul>
       <li>Viabilizar a criação e autenticação da conta do usuário;</li>
       <li>Permitir o registro, organização e visualização do histórico de apostas e evolução de banca inserido pelo usuário;</li>
@@ -139,48 +193,83 @@
       <li>Gerenciar o plano de assinatura contratado;</li>
       <li>Garantir a segurança da conta e prevenir uso indevido.</li>
     </ul>
+  </section>
 
-    <h2>4. Base Legal</h2>
+  <section class="item">
+    <h2><span class="num">4.</span> Base Legal</h2>
     <p>O tratamento de dados pessoais pelo Oddu se baseia na execução de contrato (art. 7º, V, da LGPD), para viabilizar as funcionalidades do aplicativo que você solicitou ao criar sua conta, e no consentimento do titular quando aplicável.</p>
+  </section>
 
-    <h2>5. Compartilhamento de Dados com Terceiros</h2>
+  <section class="item">
+    <h2><span class="num">5.</span> Compartilhamento de Dados com Terceiros</h2>
     <p>O Oddu utiliza os seguintes prestadores de serviço para operar o aplicativo, que têm acesso a dados estritamente na medida necessária à prestação do serviço contratado:</p>
     <ul>
       <li><strong>Supabase</strong> — hospedagem do banco de dados e autenticação;</li>
       <li><strong>Google</strong> — autenticação via login social (quando o usuário opta por essa forma de login);</li>
+      <li><strong>Resend</strong> — envio de e-mails transacionais (confirmação de cadastro e redefinição de senha);</li>
       <li><strong>Processador de assinaturas da loja de aplicativos</strong> — gerenciamento de pagamentos e status do plano Pro.</li>
     </ul>
     <p>O Oddu não vende dados pessoais a terceiros e não compartilha dados de apostas com casas de apostas, anunciantes ou corretores de dados.</p>
+  </section>
 
-    <h2>6. Armazenamento e Retenção</h2>
-    <p>Os dados são armazenados em servidores do provedor de infraestrutura utilizado pelo Oddu e mantidos enquanto sua conta estiver ativa. Ao excluir sua conta, todos os dados pessoais e de apostas associados são apagados permanentemente dos nossos sistemas.</p>
+  <section class="item">
+    <h2><span class="num">6.</span> Transferência Internacional de Dados</h2>
+    <p>Alguns dos prestadores de serviço listados na Seção 5 podem armazenar ou processar dados em servidores localizados fora do Brasil. Nesses casos, o tratamento observa as salvaguardas exigidas pela LGPD para transferência internacional de dados pessoais.</p>
+  </section>
 
-    <h2>7. Segurança da Informação</h2>
-    <p>Adotamos medidas técnicas razoáveis para proteger seus dados, incluindo controle de acesso por linha (Row Level Security) no banco de dados, garantindo que cada usuário só consiga acessar seus próprios dados, e criptografia de senha.</p>
+  <section class="item">
+    <h2><span class="num">7.</span> Armazenamento e Retenção</h2>
+    <p>Os dados são armazenados em servidores do provedor de infraestrutura utilizado pelo Oddu e mantidos enquanto sua conta estiver ativa. Ao excluir sua conta, todos os dados pessoais e de apostas associados são apagados permanentemente dos nossos sistemas, de forma atômica e irreversível.</p>
+  </section>
 
-    <h2>8. Seus Direitos como Titular de Dados (LGPD)</h2>
+  <section class="item">
+    <h2><span class="num">8.</span> Segurança da Informação</h2>
+    <p>Adotamos medidas técnicas razoáveis para proteger seus dados, incluindo:</p>
+    <ul>
+      <li>Controle de acesso por linha (Row Level Security) no banco de dados, garantindo que cada usuário só consiga acessar seus próprios dados;</li>
+      <li>Criptografia de senha e de dados em trânsito;</li>
+      <li>Restrição de funções administrativas do backend a mecanismos de autenticação de servidor, nunca expostas diretamente ao cliente.</li>
+    </ul>
+  </section>
+
+  <section class="item">
+    <h2><span class="num">9.</span> Seus Direitos como Titular de Dados (LGPD)</h2>
     <p>Você tem direito a, a qualquer momento:</p>
     <ul>
       <li>Confirmar a existência e acessar seus dados pessoais;</li>
       <li>Corrigir dados incompletos, inexatos ou desatualizados;</li>
       <li>Solicitar a exclusão dos seus dados pessoais — disponível diretamente no aplicativo, em Configurações → Excluir Conta, que remove permanentemente sua conta e todos os dados associados;</li>
       <li>Solicitar a portabilidade dos seus dados;</li>
-      <li>Revogar o consentimento, quando aplicável.</li>
+      <li>Revogar o consentimento, quando aplicável;</li>
+      <li>Obter informações sobre com quem o Oddu compartilha seus dados.</li>
     </ul>
     <p>Solicitações que não puderem ser realizadas diretamente pelo app podem ser feitas pelo e-mail de suporte disponível na tela de Configurações.</p>
+  </section>
 
-    <h2>9. Menores de Idade</h2>
-    <p>O Oddu não é destinado a menores de 18 anos e não coleta intencionalmente dados de menores.</p>
+  <section class="item">
+    <h2><span class="num">10.</span> Menores de Idade</h2>
+    <p>O Oddu não é destinado a menores de 18 anos e não coleta intencionalmente dados de menores. Caso identifiquemos, a qualquer momento, que uma conta pertence a um menor de idade, ela será encerrada e os dados associados serão excluídos.</p>
+  </section>
 
-    <h2>10. Alterações desta Política</h2>
-    <p>Esta Política de Privacidade pode ser atualizada periodicamente. Mudanças relevantes serão comunicadas dentro do aplicativo. Recomendamos revisitar esta página periodicamente.</p>
+  <section class="item">
+    <h2><span class="num">11.</span> Cookies e Tecnologias Semelhantes</h2>
+    <p>O aplicativo Oddu não utiliza cookies de rastreamento publicitário. Identificadores técnicos de sessão e dispositivo são utilizados exclusivamente para manter o usuário autenticado e para fins de segurança.</p>
+  </section>
 
-    <h2>11. Contato</h2>
+  <section class="item">
+    <h2><span class="num">12.</span> Alterações desta Política</h2>
+    <p>Esta Política de Privacidade pode ser atualizada periodicamente. Mudanças relevantes serão comunicadas dentro do aplicativo, podendo exigir novo aceite. Recomendamos revisitar esta página periodicamente.</p>
+  </section>
+
+  <section class="item">
+    <h2><span class="num">13.</span> Contato</h2>
     <p>Para exercer seus direitos ou esclarecer dúvidas sobre esta Política, entre em contato pelo e-mail de suporte disponível na tela de Configurações do aplicativo.</p>
+  </section>
 
-    <p style="margin-top:8px;"><a href="./termos.html">← Ver Termos de Uso</a></p>
+  <footer class="bottom">
+    Oddu — ferramenta de gestão e rastreamento de banca.<br>Não somos uma casa de apostas.
+  </footer>
 
-    <footer>Oddu — ferramenta de gestão e rastreamento de banca. Não somos uma casa de apostas.</footer>
-  </div>
+</div>
 </body>
 </html>
